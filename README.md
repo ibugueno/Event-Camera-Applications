@@ -165,7 +165,13 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* []()
+* Rodrigo Verschae
+  * Director, Institute of Engineering Sciences, Universidad de O’Higgins, Chile
+  * Director, PAR Explora O’Higgins (Program of the Ministry of Science & Technology), Chile
+  * Associate Professor, Universidad de O’Higgins, Chile
+  * Associated Researcher, Center for Mathematical Modeling (CMM), U. de Chile, Chile
+  * Associated Researcher, Business Intelligence Center (CEINE), U. de Chile, Chile[]()
+  * Doctoral degree in Electrical Engineering, M.Sc. in Applied Mathematics, Electrical Engineering degree, Bachelor in Computer Engineering degree
 * []()
 * []()
 
