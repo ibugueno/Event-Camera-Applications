@@ -34,8 +34,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://www.uoh.cl/">
+    <img src="images/logo-uohiggins.png" alt="Universidad de O'Higgins">
   </a>
 
   <h3 align="center">Event Camera Applications</h3>
