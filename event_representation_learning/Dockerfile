@@ -32,12 +32,12 @@ RUN echo "ignacio_erl"
 
 #CMD ["python", "run_v2e.py"]
 
-ENTRYPOINT ["conda", "run", "python", "-u", "test_main.py"]
+#ENTRYPOINT ["conda", "run", "python", "-u", "test_main.py"]
 
 
 
 
 # make docker use bash instead of sh
-#SHELL ["/bin/bash", "--login", "-c"]
-#COPY entrypoint.sh /usr/local/bin/
-#ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+SHELL ["/bin/bash", "--login", "-c"]
+COPY run_main.sh /usr/local/bin/
+ENTRYPOINT ["/usr/local/bin/run_main.sh"]
