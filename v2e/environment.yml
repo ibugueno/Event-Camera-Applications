@@ -1,0 +1,48 @@
+name: v2e
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - argcomplete
+  - blas
+  - ca-certificates
+  - certifi
+  - cudatoolkit=
+  - freetype
+  - h5py
+  - hdf5
+  - intel-openmp
+  - jpeg
+  - libopencv
+  - libpng
+  - libtiff
+  - mkl
+  - mkl-service
+  - mkl_fft
+  - mkl_random
+  - ninja
+  - numpy
+  - numpy-base
+  - olefile
+  - opencv
+  - openssl
+  - pillow
+  - pip
+  - py-opencv
+  - python=3.7
+  - python_abi
+  - pytorch
+  - pyyaml
+  - setuptools
+  - six
+  - sqlite
+  - tk
+  - torchvision
+  - tqdm
+  - numba
+  - argcomplete
+  - pip:
+    - engineering-notation==0.6.0
+prefix: C:\Users\tobid\miniconda3\envs\v2e
+

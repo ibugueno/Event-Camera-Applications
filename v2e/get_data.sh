@@ -1,0 +1,4 @@
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=18St44tWo9qDgfBHLgLT4doX6ySwCBZbC' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=18St44tWo9qDgfBHLgLT4doX6ySwCBZbC" -O superslomo.zip && rm -rf /tmp/cookies.txt
+
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Dx_re8dIP__zkh6TwShSVygh-7Fg1SUv' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Dx_re8dIP__zkh6TwShSVygh-7Fg1SUv" -O dataset.zip && rm -rf /tmp/cookies.txt
+
