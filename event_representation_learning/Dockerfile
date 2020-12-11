@@ -19,14 +19,10 @@ RUN mkdir /app/input
 RUN mkdir /app/output
 
 
-# make docker use bash instead of sh
-#SHELL ["/bin/bash", "--login", "-c"]
-#COPY entrypoint.sh /usr/local/bin/
-#ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-
-
 RUN pip install -r requirements.txt
 RUN conda install pillow=6.1
+
+RUN echo $CONDA_PREFIX
 
 # Make sure the environment is activated:
 RUN echo "ignacio_erl"
@@ -37,3 +33,11 @@ RUN echo "ignacio_erl"
 #CMD ["python", "run_v2e.py"]
 
 ENTRYPOINT ["conda", "run", "python", "-u", "test_main.py"]
+
+
+
+
+# make docker use bash instead of sh
+#SHELL ["/bin/bash", "--login", "-c"]
+#COPY entrypoint.sh /usr/local/bin/
+#ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
