@@ -26,7 +26,7 @@ RUN mkdir /app/output
 
 
 RUN pip install -r requirements.txt
-
+RUN conda install pillow=6.1
 
 # Make sure the environment is activated:
 RUN echo "ignacio_erl"
