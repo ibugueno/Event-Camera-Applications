@@ -17,6 +17,7 @@ ADD . /app
 RUN mkdir /app/data
 RUN mkdir /app/input
 RUN mkdir /app/output
+RUN mkdir /app/log
 
 
 RUN pip install -r requirements.txt
