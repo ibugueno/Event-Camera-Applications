@@ -126,12 +126,12 @@ class QuantizationLayer(nn.Module):
 
 class Classifier(nn.Module):
     def __init__(self,
-                 voxel_dimension=(9,180,240),  # dimension of voxel will be C x 2 x H x W
+                 voxel_dimension=(9,195,346), #voxel_dimension=(9,180,240),   dimension of voxel will be C x 2 x H x W
                  crop_dimension=(224, 224),  # dimension of crop before it goes into classifier
-                 num_classes=101,
+                 num_classes=8, #num_classes=101,
                  mlp_layers=[1, 30, 30, 1],
                  activation=nn.LeakyReLU(negative_slope=0.1),
-                 pretrained=True):
+                 pretrained=False): #pretrained=True):
 
         nn.Module.__init__(self)
         self.quantization_layer = QuantizationLayer(voxel_dimension, mlp_layers, activation)

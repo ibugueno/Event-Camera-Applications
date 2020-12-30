@@ -3,7 +3,8 @@ from os import listdir
 from os.path import join
 
 
-def random_shift_events(events, max_shift=20, resolution=(180, 240)):
+#def random_shift_events(events, max_shift=20, resolution=(180, 240)):
+def random_shift_events(events, max_shift=20, resolution=(195, 346)):
     H, W = resolution
     x_shift, y_shift = np.random.randint(-max_shift, max_shift+1, size=(2,))
     events[:,0] += x_shift
@@ -14,7 +15,8 @@ def random_shift_events(events, max_shift=20, resolution=(180, 240)):
 
     return events
 
-def random_flip_events_along_x(events, resolution=(180, 240), p=0.5):
+#def random_flip_events_along_x(events, resolution=(180, 240), p=0.5):
+def random_flip_events_along_x(events, resolution=(195, 346), p=0.5):
     H, W = resolution
     if np.random.random() < p:
         events[:,0] = W - 1 - events[:,0]
