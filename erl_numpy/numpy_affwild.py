@@ -11,12 +11,11 @@ import os
 import shutil
 
 window_time = 0.1 #ms
+counter = [0, 0, 0, 0, 0, 0, 0, 0]
 
 def mygrouper(n, iterable):
     args = [iter(iterable)] * n
-    result = ([e for e in t if e != None] for t in itertools.zip_longest(*args))    
-
-    return list(result)
+    return ([e for e in t if e != None] for t in itertools.zip_longest(*args))
 
 def all_equal(iterable):
     g = groupby(iterable)
@@ -33,6 +32,9 @@ def get_time_classes(annotation_f):
     all_samples = []
 
     for l in a_file:
+
+        if (t > 30*1000):
+            break
 
         if (t%100 == 0):
             all_samples.append(t)
@@ -51,10 +53,20 @@ def get_time_classes(annotation_f):
 
     for sample in all_samples:
         t = sample[0]
+
+        if (t > 30*1000):
+            break
+
         classes = sample[1:]
 
         if (all_equal(classes)):
-            time_classes.append([t/1000, sample[1]])
+
+            if (sample[1] == '-1'):
+                time_classes.append([t/1000, '7'])
+            else:
+                time_classes.append([t/1000, sample[1]])
+
+    all_samples = None
 
     return time_classes
 
@@ -64,6 +76,10 @@ def get_v2e_dvs_events(data_f):
         for event in f:
 
             t = (event.timestamp)/1e6
+
+            if (t > 30):
+                break
+
             x = 345 - event.x
             y = 194 - event.y
             p = 1 if event.polarity else -1
@@ -75,7 +91,8 @@ def generate_numpy(target_path, list_1, list_2):
     list_numpy = []
 
     i = 0
-    counter = [0, 0, 0, 0, 0, 0, 0]
+    #counter = [0, 0, 0, 0, 0, 0, 0]
+    global counter
 
     for l1 in list_1:
         ti = l1[0]
@@ -102,7 +119,6 @@ def generate_numpy(target_path, list_1, list_2):
 
                     break
 
-
 def numpy_folders(target_path):
     try:
         shutil.rmtree(target_path + 'numpy')
@@ -112,7 +128,7 @@ def numpy_folders(target_path):
     access_rights = 0o777
     os.mkdir(target_path + 'numpy', access_rights)
     
-    for a in range(0, 7):
+    for a in range(0, 8):
         os.mkdir(target_path + 'numpy/' + str(a), access_rights)
 
 
@@ -136,7 +152,7 @@ def check_dimensions(target_path, f):
         
 if __name__ == "__main__":
 
-    target_path = 'Train_Set/'
+    target_path = 'data/Validation_Set/'
 
     numpy_folders(target_path)
 
@@ -182,6 +198,9 @@ if __name__ == "__main__":
                 print('generate_numpy ok')
                 print("--- %s seconds ---" % (time.time() - start_time))
                 
+                list_1 = None
+                list_2 = None
+
             else:
                 print('pass')
 

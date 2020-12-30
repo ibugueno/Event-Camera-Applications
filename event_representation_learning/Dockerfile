@@ -26,7 +26,7 @@ RUN conda install pillow=6.1
 RUN echo $CONDA_PREFIX
 
 # Make sure the environment is activated:
-RUN echo "ignacio_erl"
+RUN echo "ignacio_erl_affwild100ms"
 
 
 

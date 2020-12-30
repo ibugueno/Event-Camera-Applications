@@ -2,7 +2,7 @@
 
 #docker rm -fv ignacio_affwild_np_clean_Train_100ms
 
-nvidia-docker run -it -e NVIDIA_VISIBLE_DEVICES=0 --name ignacio_affwild_np_clean_Train_100ms -v /home/ignacio.bugueno/cachefs/erl/input:/app -v ignacio_affwild_np_clean_Train_100ms
+nvidia-docker run -it -e NVIDIA_VISIBLE_DEVICES=0 --name ignacio_affwild_np_clean_val_100ms -v /home/ignacio.bugueno/cachefs/numpy/affwild/clean:/app/data ignacio_affwild_np_clean_val_100ms
 
 #sleep 10; docker logs ignacio_affwild_np_clean_Train_100ms
 
