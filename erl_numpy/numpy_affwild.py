@@ -11,6 +11,7 @@ import os
 import shutil
 
 window_time = 0.1 #ms
+stop_time = 60 #s
 counter = [0, 0, 0, 0, 0, 0, 0, 0]
 
 def mygrouper(n, iterable):
@@ -33,10 +34,10 @@ def get_time_classes(annotation_f):
 
     for l in a_file:
 
-        if (t > 30*1000):
+        if (t > stop_time*1000):
             break
 
-        if (t%100 == 0):
+        if ((t%(window_time * 1000)) == 0):
             all_samples.append(t)
 
         l = l.replace('\n', '')
@@ -46,7 +47,7 @@ def get_time_classes(annotation_f):
         counter += 1
         t = int(counter*(1000/30))
 
-    all_samples = mygrouper(4, all_samples)
+    all_samples = mygrouper((30 * window_time) + 1, all_samples) #Orig: 4
     all_samples = list(all_samples)
 
     time_classes = []
@@ -54,7 +55,7 @@ def get_time_classes(annotation_f):
     for sample in all_samples:
         t = sample[0]
 
-        if (t > 30*1000):
+        if (t > stop_time*1000):
             break
 
         classes = sample[1:]
@@ -77,7 +78,7 @@ def get_v2e_dvs_events(data_f):
 
             t = (event.timestamp)/1e6
 
-            if (t > 30):
+            if (t > stop_time):
                 break
 
             x = 345 - event.x
