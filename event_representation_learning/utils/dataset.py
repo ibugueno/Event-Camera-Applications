@@ -4,12 +4,19 @@ from os.path import join
 
 
 #def random_shift_events(events, max_shift=20, resolution=(180, 240)):
-def random_shift_events(events, max_shift=20, resolution=(195, 346)):
+def random_shift_events(events, f, max_shift=20, resolution=(195, 346)):
     H, W = resolution
     x_shift, y_shift = np.random.randint(-max_shift, max_shift+1, size=(2,))
+    
+    #print('rm -rf ~/cachefs/erl/' + f)
+
+    #print(events.shape)
+    #print(events[:,0])
+    #print(events[:,1])
+
     events[:,0] += x_shift
     events[:,1] += y_shift
-
+   
     valid_events = (events[:,0] >= 0) & (events[:,0] < W) & (events[:,1] >= 0) & (events[:,1] < H)
     events = events[valid_events]
 
@@ -48,10 +55,13 @@ class NCaltech101:
         """
         label = self.labels[idx]
         f = self.files[idx]
+
+        #print('rm -rf ~/cachefs/erl/' + f)
+
         events = np.load(f).astype(np.float32)
 
         if self.augmentation:
-            events = random_shift_events(events)
+            events = random_shift_events(events, f)
             events = random_flip_events_along_x(events)
 
         return events, label

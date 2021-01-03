@@ -88,6 +88,8 @@ if __name__ == '__main__':
     training_loader = Loader(training_dataset, flags, device=flags.device)
     validation_loader = Loader(validation_dataset, flags, device=flags.device)
 
+    print(flags.device)
+
     # model, and put to device
     model = Classifier()
     model = model.to(flags.device)
@@ -156,16 +158,26 @@ if __name__ == '__main__':
             optimizer.zero_grad()
 
             pred_labels, representation = model(events)
-            loss, accuracy = cross_entropy_loss_and_accuracy(pred_labels, labels)
+            
+            #print('---')
+            #print('pred_labels: ', pred_labels)
+            #print('labels: ', labels)
 
-            loss.backward()
+            try:
 
-            optimizer.step()
+                loss, accuracy = cross_entropy_loss_and_accuracy(pred_labels, labels)
 
-            sum_accuracy += accuracy
-            sum_loss += loss
+                loss.backward()
 
-            iteration += 1
+                optimizer.step()
+
+                sum_accuracy += accuracy
+                sum_loss += loss
+
+                iteration += 1
+            
+            except:
+                pass
 
         if i % 10 == 9:
             lr_scheduler.step()
